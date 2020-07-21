@@ -1,0 +1,17 @@
+server:
+   port: 8080
+   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5761/eureka/
+
+spring:
+  application:
+    name: simple-server
+
+#para seguridad    
+security:
+   oauth2:
+    resource:
+      userInfoUri: http://localhost:5999/user

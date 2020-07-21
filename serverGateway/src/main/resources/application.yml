@@ -1,0 +1,26 @@
+server:
+   port: 5762
+   
+eureka:
+  client:
+    #registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:5761/eureka/
+
+zuul:
+  host:
+    connect-timeout-millis: 100000
+    socket-timeout-millis: 100000
+  routes:
+    uaa:
+      path: /uaa/**
+      sensitive-headers:
+      service-id: AUTH-SERVER
+    simple:
+      path: /simple/**
+      sensitive-headers:
+      service-id: SIMPLE-SERVER 
+    
+spring:
+  application:
+    name: zuul-server
